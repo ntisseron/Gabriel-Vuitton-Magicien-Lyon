@@ -1,35 +1,84 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #eeeeee, #dddddd);
-  color: #000;
+  background: linear-gradient(#eee, #ccc);
+  padding: 0;
 }
 
+/* Texte principal */
 .container {
   padding: 60px 30px;
-  text-align: left;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-h1 {
-  font-size: 6rem;
-  line-height: 1.2;
-  margin: 0 0 40px;
+  text-align: center;
 }
 
 .prenom {
+  font-size: 120px;
   font-weight: bold;
   color: black;
+  line-height: 1;
 }
 
 .nom {
+  font-size: 120px;
   font-weight: bold;
   color: red;
+  line-height: 1;
 }
 
 .presentation {
-  font-size: 1.2rem;
+  font-size: 18px;
+  margin-top: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
   font-weight: bold;
-  line-height: 1.6;
+}
+
+/* Carrousel renommé */
+.custom-carousel-container {
+  position: relative;
+  width: 960px;
+  margin: 60px auto;
+  overflow: hidden;
+  background-color: #aaa;
+  padding: 10px;
+  box-shadow: 0 0 10px #666;
+}
+
+.custom-carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 30px;
+}
+
+.custom-carousel img {
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.custom-carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.custom-left {
+  left: 0;
+}
+
+.custom-right {
+  right: 0;
 }
