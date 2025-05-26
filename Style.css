@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #eeeeee, #dddddd);
+  color: #000;
+}
+
+.container {
+  padding: 60px 30px;
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 6rem;
+  line-height: 1.2;
+  margin: 0 0 40px;
+}
+
+.prenom {
+  font-weight: bold;
+  color: black;
+}
+
+.nom {
+  font-weight: bold;
+  color: red;
+}
+
+.presentation {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.6;
+}
