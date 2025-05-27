@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriel Vuitton</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -16,6 +16,146 @@
         <p>Laissez-vous transporter par des tours de magie modernes, interactifs et remplis de mystère.</p>
         <p>Préparez-vous à voir l'impossible devenir réalité... sous vos yeux ! 🎩✨</p>
     </div>
+
+    <div class="carousel-container">
+        <button class="nav left" onclick="scrollLeft()">&#10094;</button>
+        <div class="carousel" id="carousel">
+            <!-- Remplace les src par tes vraies images -->
+            <img src="img1.jpg" alt="Photo 1" />
+            <img src="img2.jpg" alt="Photo 2" />
+            <img src="img3.jpg" alt="Photo 3" />
+            <img src="img4.jpg" alt="Photo 4" />
+            <img src="img5.jpg" alt="Photo 5" />
+            <img src="img6.jpg" alt="Photo 6" />
+            <img src="img7.jpg" alt="Photo 7" />
+            <img src="img8.jpg" alt="Photo 8" />
+            <img src="img9.jpg" alt="Photo 9" />
+            <img src="img10.jpg" alt="Photo 10" />
+        </div>
+        <button class="nav right" onclick="scrollRight()">&#10095;</button>
+    </div>
+
+    <div class="reviews-carousel-container">
+        <div class="reviews-carousel-track" id="reviewsCarouselTrack">
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Jean Dupont</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Super expérience ! Le service était impeccable et l’ambiance très agréable.</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Claire Lemoine</div>
+                </div>
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-text">Très bon moment passé ici. Je recommande vivement cet endroit !</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Paul Martin</div>
+                </div>
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-text">Endroit charmant, personnel aux petits soins. Juste un peu d’attente.</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Sophie Laurent</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Incroyable ! Une des meilleures expériences que j’ai eues.</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Lucas Renaud</div>
+                </div>
+                <div class="review-stars">★★★☆☆</div>
+                <div class="review-text">C’était correct mais je m’attendais à mieux vu les avis.</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Emma Girard</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Parfait du début à la fin. Merci pour ce beau moment.</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Nina Moreau</div>
+                </div>
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-text">Très bon accueil, je reviendrai sans hésiter. L’endroit est chaleureux.</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Adrien Lefèvre</div>
+                </div>
+                <div class="review-stars">★★☆☆☆</div>
+                <div class="review-text">Service lent et plats tièdes. Un peu déçu malgré les avis positifs.</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Camille Robert</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Une expérience inoubliable ! Tout était parfait du début à la fin.</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Léo Mercier</div>
+                </div>
+                <div class="review-stars">★★★☆☆</div>
+                <div class="review-text">Correct sans plus. Le cadre est beau mais la nourriture moyenne.</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Élise Bernard</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">J’ai adoré ! Personnel souriant et repas délicieux. Merci !</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Théo Gauthier</div>
+                </div>
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-text">Un peu d’attente mais cela valait le coup. Ambiance conviviale.</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-username">Julie Perrot</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Coup de cœur total ! Je recommande à 100% cet endroit.</div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

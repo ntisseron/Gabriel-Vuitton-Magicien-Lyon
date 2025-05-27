@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 4em;
+    color: black;
+    margin: 0;
+}
+
+h2 {
+    font-size: 4em;
+    color: red;
+    margin: 0;
+}
+
+p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    overflow: hidden;
+    background-color: #aaa;
+    padding: 10px;
+    box-shadow: 0 0 10px #666;
+    margin: 20px auto;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 30px;
+}
+
+.carousel img {
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
+    background-color: white;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 8px;
+}
+
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #333;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.nav.left {
+    left: 10px;
+}
+
+.nav.right {
+    right: 10px;
+}
+
+.reviews-carousel-container {
+    overflow: hidden;
+    width: 100%;
+    background-color: #ddd;
+    padding: 20px 0;
+}
+
+.reviews-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: max-content;
+}
+
+.review-card {
+    flex: 0 0 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin: 0 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    min-width: 300px;
+}
+
+.review-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 10px;
+}
+
+.review-username {
+    font-weight: bold;
+}
+
+.review-stars {
+    color: #ccc;
+    margin: 10px 0;
+}
+
+.review-stars .filled {
+    color: #f0c040;
+}
+
+.review-text {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .carousel img {
+        max-width: 200px;
+        height: 300px;
+    }
+
+    .review-card {
+        flex: 0 0 250px;
+        min-width: 250px;
+    }
+}
