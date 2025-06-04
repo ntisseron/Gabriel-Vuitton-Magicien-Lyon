@@ -1,155 +1,155 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: white;
-    color: black;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .container {
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
 }
 
 h1 {
-    font-size: 4em;
-    color: black;
-    margin: 0;
+  font-size: 3em;
+  color: black;
+  margin: 0;
 }
 
 h2 {
-    font-size: 4em;
-    color: red;
-    margin: 0;
+  font-size: 3em;
+  color: red;
+  margin: 0;
 }
 
 p {
-    font-size: 1em;
-    margin: 5px 0;
+  font-size: 1em;
+  margin: 5px 0;
 }
 
+/* Carrousel d'images */
 .carousel-container {
-    position: relative;
-    width: 100%;
-    max-width: 960px;
-    overflow: hidden;
-    background-color: #aaa;
-    padding: 10px;
-    box-shadow: 0 0 10px #666;
-    margin: 20px auto;
+  position: relative;
+  width: 95%;
+  max-width: 960px;
+  overflow: hidden;
+  background-color: #aaa;
+  padding: 10px;
+  box-shadow: 0 0 10px #666;
+  margin: 20px auto;
 }
 
 .carousel {
-    display: flex;
-    transition: transform 0.5s ease;
-    gap: 30px;
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 10px;
 }
 
 .carousel img {
-    width: 100%;
-    max-width: 300px;
-    height: 400px;
-    background-color: white;
-    object-fit: cover;
-    flex-shrink: 0;
-    border-radius: 8px;
+  width: 100%;
+  max-width: 250px;
+  height: 350px;
+  background-color: white;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 8px;
 }
 
+/* Boutons de navigation carrousel */
 .nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #333;
-    color: white;
-    border: none;
-    font-size: 2rem;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
 }
 
 .nav.left {
-    left: 10px;
+  left: 10px;
 }
 
 .nav.right {
-    right: 10px;
+  right: 10px;
 }
 
+/* Carrousel d'avis */
 .reviews-carousel-container {
-    overflow: hidden;
-    width: 100%;
-    background-color: #ddd;
-    padding: 20px 0;
+  overflow-x: auto;
+  width: 100%;
+  background-color: #ddd;
+  padding: 20px 0;
 }
 
 .reviews-carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: max-content;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: max-content;
 }
 
 .review-card {
-    flex: 0 0 300px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    margin: 0 10px;
-    padding: 20px;
-    box-sizing: border-box;
-    min-width: 300px;
+  flex: 0 0 auto;
+  width: 90%;
+  max-width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  margin: 0 10px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .review-card-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .review-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #ccc;
-    margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 10px;
 }
 
 .review-username {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .review-stars {
-    color: #ccc;
-    margin: 10px 0;
+  color: #ccc;
+  margin: 10px 0;
 }
 
 .review-stars .filled {
-    color: #f0c040;
+  color: #f0c040;
 }
 
 .review-text {
-    font-size: 0.9rem;
-    color: #333;
+  font-size: 0.9rem;
+  color: #333;
 }
 
-@media (max-width: 768px) {
-    .carousel img {
-        max-width: 200px;
-        height: 300px;
-    }
-
-    .review-card {
-        flex: 0 0 250px;
-        min-width: 250px;
-    }
-}
-
+/* Section TikTok */
 .tiktok-section {
   background: #d3d3d3;
   padding: 20px;
   border-radius: 15px;
-  margin: 40px auto;
+  margin: 20px auto;
+  width: 95%;
   max-width: 1000px;
 }
 
@@ -190,7 +190,7 @@ p {
 
 .tiktok-videos {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   overflow-x: auto;
   padding: 10px 0;
   scroll-snap-type: x mandatory;
@@ -202,12 +202,14 @@ p {
 }
 
 .tiktok-clip {
-  width: 300px;
-  height: 400px;
+  width: 100%;
+  max-width: 250px;
+  height: 350px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: transform 0.3s;
+  flex-shrink: 0;
 }
 
 .tiktok-clip:hover {
@@ -234,32 +236,25 @@ p {
   background: darkred;
 }
 
-/* Responsive adjustments uniquement pour le header */
-@media (max-width: 768px) {
-  .tiktok-profile {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-
+/* Cartes Flip */
 .flip-card-wrapper {
-  padding: 40px 20px;
+  padding: 20px;
   background: #e0e0e0;
+  width: 100%;
   overflow-x: auto;
 }
 
 .flip-card-container {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
   flex-wrap: nowrap;
   min-width: 100%;
 }
 
 .flip-card {
-  width: 150px;
-  height: 200px;
+  width: 120px;
+  height: 160px;
   perspective: 1000px;
   text-decoration: none;
 }
@@ -304,4 +299,212 @@ p {
 .flip-card-front img {
   max-width: 80%;
   max-height: 80%;
+}
+
+/* RESET GLOBAL */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* VARIABLES */
+:root {
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #323232;
+}
+
+/* CONTENEUR DU FORMULAIRE */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: transparent;
+}
+
+/* FORMULAIRE */
+.form {
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  box-shadow: 4px 4px var(--main-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 330px;
+  background-color: transparent;
+}
+
+/* TITRE */
+.form > p {
+  font: 700 20px sans-serif;
+  color: var(--font-color);
+}
+.form > p > span {
+  font: 600 17px monospace;
+  color: var(--font-color-sub);
+}
+
+/* CHAMPS */
+.form > input,
+.form > textarea {
+  width: 100%;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font: 600 15px sans-serif;
+  color: var(--font-color);
+  padding: 10px;
+  outline: none;
+}
+.form > textarea {
+  height: 100px;
+  resize: none;
+}
+
+/* BOUTON ENVOI */
+.oauthButton {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  background: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font: 600 16px sans-serif;
+  color: var(--font-color);
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+.oauthButton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background: #212121;
+  z-index: -1;
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,.27);
+  transition: width 0.25s ease;
+}
+.oauthButton:hover {
+  color: #e8e8e8;
+}
+.oauthButton:hover::before {
+  width: 100%;
+}
+
+/* BOUTON AFFICHAGE FORMULAIRE */
+.btn-toggle-form {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font: 700 16px sans-serif;
+  cursor: pointer;
+  box-shadow: 4px 4px #000;
+  transition: background .2s;
+}
+.btn-toggle-form:hover {
+  background: #444;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 2em;
+  }
+
+  .carousel img, .tiktok-clip {
+    max-width: 200px;
+    height: 300px;
+  }
+
+  .review-card {
+    width: 85%;
+  }
+
+  .flip-card {
+    width: 100px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.5em;
+  }
+
+  .carousel img, .tiktok-clip {
+    max-width: 150px;
+    height: 250px;
+  }
+
+  .review-card {
+    width: 80%;
+  }
+
+  .flip-card {
+    width: 80px;
+    height: 120px;
+  }
+}
+
+.review-form-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.review-form-container input,
+.review-form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.star-rating {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.star {
+  color: #ccc;
+  cursor: pointer;
+}
+
+.star.filled {
+  color: #f0c040;
+}
+
+.review-form-container button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.review-form-container button:hover {
+  background-color: #555;
 }

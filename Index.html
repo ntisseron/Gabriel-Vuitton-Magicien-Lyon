@@ -35,6 +35,26 @@
         <button class="nav right" onclick="scrollRight()">&#10095;</button>
     </div>
 
+   <button class="btn-toggle-form" onclick="toggleForm()">Contacter Moi !</button>
+
+<div class="form-wrapper" id="formContainer" style="display: none;">
+  <form
+    action="https://formspree.io/f/xkgrlyql"
+    method="POST"
+    class="form"
+  >
+    <p>Formulaire de contact<br><span>Je réponds rapidement !</span></p>
+
+    <input type="email" name="email" placeholder="Votre email" required />
+    <textarea name="message" placeholder="Votre message" required></textarea>
+
+    <button type="submit" class="oauthButton">
+      <span>Envoyer</span>
+    </button>
+  </form>
+</div>
+
+
     <div class="reviews-carousel-container">
         <div class="reviews-carousel-track" id="reviewsCarouselTrack">
             <div class="review-card">
@@ -155,6 +175,24 @@
             </div>
         </div>
     </div>
+
+    <div class="review-form-container">
+  <form id="reviewForm">
+    <h3>Ajouter un avis</h3>
+    <input type="text" id="username" placeholder="Votre nom" required>
+    <textarea id="reviewText" placeholder="Votre avis" required></textarea>
+    <div class="star-rating">
+      <span class="star" data-value="1">★</span>
+      <span class="star" data-value="2">★</span>
+      <span class="star" data-value="3">★</span>
+      <span class="star" data-value="4">★</span>
+      <span class="star" data-value="5">★</span>
+    </div>
+    <button type="submit">Soumettre</button>
+  </form>
+</div>
+
+
 
     <section class="tiktok-section">
   <div class="tiktok-profile">
