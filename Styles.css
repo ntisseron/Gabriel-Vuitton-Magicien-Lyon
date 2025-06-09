@@ -464,47 +464,102 @@ p {
   }
 }
 
-.review-form-container {
-  background-color: #f9f9f9;
+:root {
+  --main-color: #020202c5;
+  --font-color: #222;
+  --font-color-sub: #555;
+  --bg-color: #ffffffb6;
+}
+
+/* Conteneur du formulaire centré */
+#avisForm {
+   display: none;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  box-shadow: 4px 4px var(--main-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 500px;
-}
-
-.review-form-container input,
-.review-form-container textarea {
   width: 100%;
+  max-width: 330px;
+  background-color: var(--bg-color);
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Input & textarea */
+#avisForm input[type="text"],
+#avisForm textarea {
+  width: 100%;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  background-color: var(--bg-color);
+  /* box-shadow retiré ici */
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--font-color);
   padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
+  outline: none;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+#avisForm input[type="text"]:focus,
+#avisForm textarea:focus {
+  border-color: #46525f;
+  /* box-shadow aussi retiré ici */
+}
+
+/* Textarea hauteur spécifique */
+#avisForm textarea {
+  height: 100px;
+}
+
+/* Bouton */
+#avisForm button {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: 2px solid var(--main-color);
   border-radius: 5px;
-}
-
-.star-rating {
-  font-size: 24px;
-  margin: 10px 0;
-}
-
-.star {
-  color: #ccc;
+  background: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--font-color);
   cursor: pointer;
+  transition: color 0.25s ease;
 }
 
-.star.filled {
-  color: #f0c040;
+#avisForm button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background: #212121;
+  z-index: -1;
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: width 0.25s ease;
 }
 
-.review-form-container button {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+#avisForm button:hover {
+  color: #e8e8e8;
 }
 
-.review-form-container button:hover {
-  background-color: #555;
+#avisForm button:hover::before {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  #avisForm {
+    margin: 20px 15px;
+    padding: 15px;
+  }
 }
