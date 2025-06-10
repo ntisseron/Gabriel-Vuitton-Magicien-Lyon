@@ -60,14 +60,27 @@ document.getElementById("avisForm").addEventListener("submit", async (e) => {
 });
 
 async function chargerAvis() {
-  const container = document.getElementById("avisContainer");
-  container.innerHTML = "";
+  const container = document.getElementById("reviewsCarouselTrack");
+  container.innerHTML = ""; // Vider le contenu actuel
+
   const snapshot = await db.collection("avis").orderBy("timestamp", "desc").get();
+
   snapshot.forEach((doc) => {
     const data = doc.data();
-    const div = document.createElement("div");
-    div.innerHTML = `<strong>${data.nom}</strong> : ${data.message} <br> Note : ${'★'.repeat(data.note)}${'☆'.repeat(5 - data.note)}`;
-    container.appendChild(div);
+    const reviewCard = document.createElement("div");
+    reviewCard.className = "review-card";
+
+    // Créer le contenu de la carte d'avis
+    reviewCard.innerHTML = `
+      <div class="review-card-header">
+        <div class="review-avatar"></div>
+        <div class="review-username">${data.nom}</div>
+      </div>
+      <div class="review-stars">${'★'.repeat(data.note)}${'☆'.repeat(5 - data.note)}</div>
+      <div class="review-text">${data.message}</div>
+    `;
+
+    container.appendChild(reviewCard);
   });
 }
 
