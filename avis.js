@@ -31,12 +31,30 @@ document.querySelectorAll('.star').forEach(star => {
   });
 });
 
+// Gestion de la soumission du formulaire avec honeypot et limitation de soumission
 document.getElementById("avisForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const nom = document.getElementById("nom").value.trim();
   const message = document.getElementById("message").value.trim();
   const note = document.getElementById("note").value;
+  const honeypot = document.getElementById("honeypot").value;
+
+  // Vérification du honeypot
+  if (honeypot) {
+    alert("La soumission du formulaire semble être automatisée.");
+    return;
+  }
+
+  // Limitation de soumission
+  const now = new Date();
+  const userSubmissions = JSON.parse(localStorage.getItem('userSubmissions') || '[]');
+  const lastSubmission = userSubmissions.length > 0 ? new Date(userSubmissions[userSubmissions.length - 1]) : null;
+
+  if (lastSubmission && (now - lastSubmission) < 3600000) { // Limite à une soumission par heure
+    alert("Vous avez déjà soumis un avis récemment. Veuillez patienter avant de soumettre un nouvel avis.");
+    return;
+  }
 
   if (nom && message && note) {
     try {
@@ -46,9 +64,15 @@ document.getElementById("avisForm").addEventListener("submit", async (e) => {
         note: parseInt(note, 10),
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       });
-      alert("Avis envoyé !");
+
+      alert("Avis envoyé avec succès !");
       document.getElementById("avisForm").reset();
       document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
+
+      // Mettre à jour le localStorage avec la nouvelle soumission
+      userSubmissions.push(now.toISOString());
+      localStorage.setItem('userSubmissions', JSON.stringify(userSubmissions));
+
       chargerAvis();
     } catch (err) {
       console.error("Erreur Firestore :", err);
@@ -61,8 +85,7 @@ document.getElementById("avisForm").addEventListener("submit", async (e) => {
 
 async function chargerAvis() {
   const container = document.getElementById("reviewsCarouselTrack");
-  container.innerHTML = ""; // Vider le contenu actuel
-
+  container.innerHTML = "";
   const snapshot = await db.collection("avis").orderBy("timestamp", "desc").get();
 
   snapshot.forEach((doc) => {
@@ -70,7 +93,6 @@ async function chargerAvis() {
     const reviewCard = document.createElement("div");
     reviewCard.className = "review-card";
 
-    // Créer le contenu de la carte d'avis
     reviewCard.innerHTML = `
       <div class="review-card-header">
         <div class="review-avatar"></div>

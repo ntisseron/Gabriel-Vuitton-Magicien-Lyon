@@ -1,6 +1,8 @@
+/* Dégradé de gris sur tout le fond de la page */
 body {
   font-family: Arial, sans-serif;
-  background-color: white;
+  background: url('/Asset/Fond.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: black;
   margin: 0;
   padding: 0;
