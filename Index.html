@@ -182,11 +182,21 @@
 
 <button class="btn-toggle-avis" id="toggleAvisBtn">Partager son expérience</button>
 
-<form id="avisForm" style="display: none;">
+<form id="avisForm">
   <input type="text" id="nom" placeholder="Votre nom" required>
   <textarea id="message" placeholder="Votre avis" required></textarea>
+  <div class="rating">
+    <span class="star" data-value="1">★</span>
+    <span class="star" data-value="2">★</span>
+    <span class="star" data-value="3">★</span>
+    <span class="star" data-value="4">★</span>
+    <span class="star" data-value="5">★</span>
+  </div>
+  <input type="hidden" id="note" value="0" required>
   <button type="submit">Envoyer</button>
 </form>
+<div id="avisContainer"></div>
+
 
     <section class="tiktok-section">
   <div class="tiktok-profile">
@@ -201,22 +211,22 @@
 
   <div class="tiktok-videos">
     <a href="https://www.tiktok.com/@gabriel.vuitton/video/7397725550741048609" target="_blank">
-      <video class="tiktok-clip" src="Tiktok/NewYork.mp4" autoplay loop muted></video>
+      <video class="tiktok-clip" src="Asset/Tiktok/NewYork.mp4" autoplay loop muted></video>
     </a>
     <a href="https://www.tiktok.com/@gabriel.vuitton/video/7356647752266190113" target="_blank">
-      <video class="tiktok-clip" src="Tiktok/IMpossible.mp4" autoplay loop muted></video>
+      <video class="tiktok-clip" src="Asset/Tiktok/IMpossible.mp4" autoplay loop muted></video>
     </a>
     <a href="https://www.tiktok.com/@gabriel.vuitton/video/7495111465695743254" target="_blank">
-      <video class="tiktok-clip" src="Tiktok/CasaDePapel.mp4" autoplay loop muted></video>
+      <video class="tiktok-clip" src="Asset/Tiktok/CasaDePapel.mp4" autoplay loop muted></video>
     </a>
     <a href="https://www.tiktok.com/@gabriel.vuitton/video/7495111465695743254" target="_blank">
-      <video class="tiktok-clip" src="Tiktok/CasaDePapel.mp4" autoplay loop muted></video>
+      <video class="tiktok-clip" src="Asset/Tiktok/CasaDePapel.mp4" autoplay loop muted></video>
     </a>
     <a href="https://www.tiktok.com/@gabriel.vuitton/video/7495111465695743254" target="_blank">
-      <video class="tiktok-clip" src="Tiktok/CasaDePapel.mp4" autoplay loop muted></video>
+      <video class="tiktok-clip" src="Asset/Tiktok/CasaDePapel.mp4" autoplay loop muted></video>
     </a>
     <a href="https://www.tiktok.com/@gabriel.vuitton/video/7495111465695743254" target="_blank">
-      <video class="tiktok-clip" src="Tiktok/CasaDePapel.mp4" autoplay loop muted></video>
+      <video class="tiktok-clip" src="Asset/Tiktok/CasaDePapel.mp4" autoplay loop muted></video>
     </a>
   </div>
 
