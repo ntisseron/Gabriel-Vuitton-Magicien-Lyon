@@ -88,3 +88,29 @@ document.getElementById('toggleAvisBtn').addEventListener('click', function() {
     this.textContent = 'Partager son expérience';
   }
 });
+
+// Flip progressif des cartes selon le scroll (effet Apple)
+document.addEventListener('DOMContentLoaded', function () {
+  const cards = document.querySelectorAll('.flip-card');
+  const revealStep = 0.2; // 20% de visibilité pour chaque carte
+
+  function handleScroll() {
+    const windowHeight = window.innerHeight;
+    cards.forEach((card, idx) => {
+      const rect = card.getBoundingClientRect();
+      const visible = Math.max(0, Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0));
+      const percentVisible = visible / rect.height;
+
+      // Chaque carte se retourne à partir d'un certain seuil de scroll
+      if (percentVisible > (revealStep * (idx + 1))) {
+        card.classList.add('flipped');
+      } else {
+        card.classList.remove('flipped');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('resize', handleScroll);
+  handleScroll(); // Appel initial
+});
