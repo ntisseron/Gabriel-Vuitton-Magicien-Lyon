@@ -11,6 +11,7 @@ body {
   align-items: center;
   min-height: 100vh;
   box-sizing: border-box;
+  padding-top: 65px; /* Pour éviter que le header ne masque le contenu */
 }
 
 .container {
@@ -37,55 +38,6 @@ p {
 }
 
 /* Carrousel d'images */
-.carousel-container {
-  position: relative;
-  width: 95%;
-  max-width: 960px;
-  overflow: hidden;
-  background-color: #aaa;
-  padding: 10px;
-  box-shadow: 0 0 10px #666;
-  margin: 20px auto;
-}
-
-.carousel {
-  display: flex;
-  transition: transform 0.5s ease;
-  gap: 10px;
-}
-
-.carousel img {
-  width: 100%;
-  max-width: 250px;
-  height: 350px;
-  background-color: white;
-  object-fit: cover;
-  flex-shrink: 0;
-  border-radius: 8px;
-}
-
-/* Boutons de navigation carrousel */
-.nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #333;
-  color: white;
-  border: none;
-  font-size: 1.5rem;
-  padding: 8px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-}
-
-.nav.left {
-  left: 10px;
-}
-
-.nav.right {
-  right: 10px;
-}
 
 /* Carrousel d'avis */
 .reviews-carousel-container {
@@ -270,78 +222,15 @@ p {
 /* Formulaire d'avis */
 #avisForm {
   display: none;
-  border: 2px solid var(--main-color, #323232);
-  border-radius: 5px;
-  box-shadow: 4px 4px var(--main-color, #323232);
   flex-direction: column;
   gap: 20px;
   padding: 20px;
   width: 100%;
   max-width: 330px;
-  background-color: var(--bg-color, #fff);
   margin: 40px auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-#avisForm input[type="text"],
-#avisForm textarea {
-  width: 100%;
-  border: 2px solid var(--main-color, #323232);
-  border-radius: 5px;
-  background-color: var(--bg-color, #fff);
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--font-color, #222);
-  padding: 10px;
-  outline: none;
-  resize: none;
-  transition: border-color 0.3s ease;
-}
-
-#avisForm input[type="text"]:focus,
-#avisForm textarea:focus {
-  border-color: #46525f;
-}
-
-#avisForm textarea {
-  height: 100px;
-}
-
-#avisForm button {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  border: 2px solid var(--main-color, #323232);
-  border-radius: 5px;
-  background: var(--bg-color, #fff);
-  box-shadow: 4px 4px var(--main-color, #323232);
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--font-color, #222);
-  cursor: pointer;
-  transition: color 0.25s ease;
-  overflow: hidden;
-}
-#avisForm button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: 0;
-  background: #212121;
-  z-index: -1;
-  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-  transition: width 0.25s ease;
-}
-#avisForm button:hover {
-  color: #e8e8e8;
-}
-#avisForm button:hover::before {
-  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px #0001;
 }
 
 /* RESET GLOBAL */
@@ -533,18 +422,16 @@ p {
 
 /* Conteneur du formulaire centré */
 #avisForm {
-   display: none;
-  border: 2px solid var(--main-color, #323232);
-  border-radius: 5px;
-  box-shadow: 4px 4px var(--main-color, #323232);
+  display: none;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
   width: 100%;
   max-width: 330px;
-  background-color: var(--bg-color, #fff);
   margin: 40px auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px #0001;
 }
 
 /* Input & textarea */
@@ -755,4 +642,101 @@ p {
   margin-bottom: 20px;
   margin-top: 40px;
   letter-spacing: 1px;
+}
+
+/* Carrousel de fond limité à la section hero-section */
+.hero-section {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hero-carousel-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-carousel-track {
+  display: flex;
+  width: 400vw; /* 4 images */
+  height: 100%;
+  animation: hero-carousel-slide 16s linear infinite;
+}
+
+.hero-carousel-track img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  filter: brightness(0.7) blur(1px);
+  opacity: 0.95; /* Ajoute cette ligne */
+}
+
+@keyframes hero-carousel-slide {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(0); }
+  25% { transform: translateX(-100vw); }
+  45% { transform: translateX(-100vw); }
+  50% { transform: translateX(-200vw); }
+  70% { transform: translateX(-200vw); }
+  75% { transform: translateX(-300vw); }
+  95% { transform: translateX(-300vw); }
+  100% { transform: translateX(0); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-shadow: 0 2px 8px #000a;
+  padding: 40px 10px 60px 10px;
+}
+
+/* Header principal */
+.main-header {
+  width: 100vw;
+  background: rgba(20, 20, 20, 0.85);
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px #0002;
+}
+
+.main-header nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 18px 0;
+}
+
+.main-header nav ul li a {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.main-header nav ul li a:hover,
+.main-header nav ul li a:focus {
+  background: #fff;
+  color: #222;
 }

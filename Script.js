@@ -1,15 +1,3 @@
-const carousel = document.getElementById('carousel');
-
-function scrollRight() {
-  const first = carousel.firstElementChild;
-  carousel.appendChild(first);
-}
-
-function scrollLeft() {
-  const last = carousel.lastElementChild;
-  carousel.insertBefore(last, carousel.firstElementChild);
-}
-
 const totalImages = 10;
 const visibleImages = 3;
 let scrollIndex = 0;

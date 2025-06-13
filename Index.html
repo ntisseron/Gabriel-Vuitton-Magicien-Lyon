@@ -10,35 +10,36 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Gabriel</h1>
-        <h2>VUITTON</h2>
-        <p>✩Bienvenue dans l'univers de l'illusion et du rêve !</p>
-        <p>Je suis [Nom du Magicien], artiste magicien professionnel, et je vous invite à vivre une expérience unique où le réel se mêle à l'impossible.</p>
-        <p>Spectacles pour enfants, soirées d'entreprise, mariages ou événements privés — chaque prestation est conçue pour émerveiller et captiver.</p>
-        <p>Laissez-vous transporter par des tours de magie modernes, interactifs et remplis de mystère.</p>
-        <p>Préparez-vous à voir l'impossible devenir réalité... sous vos yeux ! 🎩✨</p>
+    <!-- Header principal -->
+<header class="main-header">
+  <nav>
+    <ul>
+      <li><a href="#formContainer">Contact</a></li>
+      <li><a href="#apparitions">Mes Apparitions</a></li>
+      <li><a href="#reseaux">Mes Réseaux</a></li>
+    </ul>
+  </nav>
+</header>
+    <section class="hero-section">
+  <div class="hero-carousel-bg">
+    <div class="hero-carousel-track">
+      <img src="/Asset/DHM - Squid Game (MOI).png" alt="Photo 1" />
+      <img src="/Asset/Gabriel - Rappeur (moi).png" alt="Photo 2" />
+      <img src="Asset/Joyca & Inox - Talent.png" alt="Photo 3" />
+      <img src="/Asset/La France A Un Incroyable Talent (MOI).jpg" alt="Photo 4" />
     </div>
-
+  </div>
+  <div class="hero-content">
+    <h1>Gabriel Vuitton</h1>
+    <p>✩Bienvenue dans l'univers de l'illusion et du rêve !</p>
+    <p>Je suis [Nom du Magicien], artiste magicien professionnel, et je vous invite à vivre une expérience unique où le réel se mêle à l'impossible.</p>
+    <p>Spectacles pour enfants, soirées d'entreprise, mariages ou événements privés — chaque prestation est conçue pour émerveiller et captiver.</p>
+    <p>Laissez-vous transporter par des tours de magie modernes, interactifs et remplis de mystère.</p>
+    <p>Préparez-vous à voir l'impossible devenir réalité... sous vos yeux ! 🎩✨</p>
     <div class="carousel-container">
-        <button class="nav left" onclick="scrollLeft()">&#10094;</button>
-        <div class="carousel" id="carousel">
-            <!-- Remplace les src par tes vraies images -->
-            <img src="img1.jpg" alt="Photo 1" />
-            <img src="img2.jpg" alt="Photo 2" />
-            <img src="img3.jpg" alt="Photo 3" />
-            <img src="img4.jpg" alt="Photo 4" />
-            <img src="img5.jpg" alt="Photo 5" />
-            <img src="img6.jpg" alt="Photo 6" />
-            <img src="img7.jpg" alt="Photo 7" />
-            <img src="img8.jpg" alt="Photo 8" />
-            <img src="img9.jpg" alt="Photo 9" />
-            <img src="img10.jpg" alt="Photo 10" />
-        </div>
-        <button class="nav right" onclick="scrollRight()">&#10095;</button>
-    </div>
+        
 
-   <button class="btn-toggle-form" onclick="toggleForm()">Contacter Moi !</button>
+    <button class="btn-toggle-form" onclick="toggleForm()">Contacter Moi !</button>
 
 <div class="form-wrapper" id="formContainer" style="display: none;">
   <form
@@ -56,11 +57,15 @@
     </button>
   </form>
 </div>
+  </div>
+</section>
 
-
-    <div class="reviews-carousel-container">
-        <div class="reviews-carousel-track" id="reviewsCarouselTrack">
-            <div class="review-card">
+<!-- Le reste de ton site -->
+<div class="main-content">
+    <!-- Carrousel d'avis -->
+<div class="reviews-carousel-container">
+  <div class="reviews-carousel-track" id="reviewsCarouselTrack">
+    <div class="review-card">
                 <div class="review-card-header">
                     <div class="review-avatar"></div>
                     <div class="review-username">Jean Dupont</div>
@@ -176,13 +181,13 @@
                 <div class="review-stars">★★★★★</div>
                 <div class="review-text">Coup de cœur total ! Je recommande à 100% cet endroit.</div>
             </div>
-        </div>
-    </div>
+  </div>
+</div>
 
-
+<!-- Gestionnaire d'avis : bouton + formulaire -->
 <button class="btn-toggle-avis" id="toggleAvisBtn">Partager son expérience</button>
 
-<form id="avisForm">
+<form id="avisForm" style="display: none;">
   <input type="text" id="nom" placeholder="Votre nom" required>
   <textarea id="message" placeholder="Votre avis" required></textarea>
   <div class="rating">
