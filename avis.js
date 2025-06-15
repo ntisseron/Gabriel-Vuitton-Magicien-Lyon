@@ -51,7 +51,7 @@ document.getElementById("avisForm").addEventListener("submit", async (e) => {
   const userSubmissions = JSON.parse(localStorage.getItem('userSubmissions') || '[]');
   const lastSubmission = userSubmissions.length > 0 ? new Date(userSubmissions[userSubmissions.length - 1]) : null;
 
-  if (lastSubmission && (now - lastSubmission) < 3600000) { // Limite à une soumission par heure
+  if (lastSubmission && (now - lastSubmission) < 1000) { // Limite à une soumission par heure
     alert("Vous avez déjà soumis un avis récemment. Veuillez patienter avant de soumettre un nouvel avis.");
     return;
   }

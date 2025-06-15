@@ -11,7 +11,6 @@ body {
   align-items: center;
   min-height: 100vh;
   box-sizing: border-box;
-  padding-top: 65px; /* Pour éviter que le header ne masque le contenu */
 }
 
 .container {
@@ -41,10 +40,14 @@ p {
 
 /* Carrousel d'avis */
 .reviews-carousel-container {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
   overflow-x: auto;
-  width: 100%;
   background-color: #ddd;
   padding: 20px 0;
+  box-sizing: border-box;
 }
 
 .reviews-carousel-track {
@@ -707,11 +710,12 @@ p {
 /* Header principal */
 .main-header {
   width: 100vw;
-  background: rgba(20, 20, 20, 0.85);
-  position: fixed;
+  background: none;
+  position: absolute;
   top: 0; left: 0;
-  z-index: 100;
-  box-shadow: 0 2px 12px #0002;
+  z-index: 2;
+  box-shadow: none;
+  margin: 0;
 }
 
 .main-header nav ul {
@@ -721,22 +725,38 @@ p {
   gap: 40px;
   list-style: none;
   margin: 0;
-  padding: 18px 0;
+  padding: 24px 0 12px 0;
 }
 
 .main-header nav ul li a {
-  color: #fff;
-  font-weight: 600;
-  font-size: 1.1em;
+  font-weight: 700;
+  font-size: 1.2em;
   text-decoration: none;
   letter-spacing: 1px;
   padding: 8px 18px;
   border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
+  background: linear-gradient(90deg, #fff 20%, #ffe066 50%, #fff 80%);
+  background-size: 200% auto;
+  color: #222;
+  transition: background-position 0.6s, color 0.2s;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .main-header nav ul li a:hover,
 .main-header nav ul li a:focus {
-  background: #fff;
-  color: #222;
+  background-position: right center;
+  color: #ffe066;
+  text-shadow: 0 0 8px #fff8;
+}
+
+.apparitions-title {
+  text-align: center;
+  font-size: 2.8em;
+  font-weight: 900;
+  color: #ffe066;
+  text-shadow: 0 2px 16px #222, 0 0 8px #ffe06699;
+  margin: 40px 0 30px 0;
+  letter-spacing: 2px;
 }

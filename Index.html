@@ -10,25 +10,26 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
 </head>
 <body>
-    <!-- Header principal -->
-<header class="main-header">
-  <nav>
-    <ul>
-      <li><a href="#formContainer">Contact</a></li>
-      <li><a href="#apparitions">Mes Apparitions</a></li>
-      <li><a href="#reseaux">Mes Réseaux</a></li>
-    </ul>
-  </nav>
-</header>
     <section class="hero-section">
   <div class="hero-carousel-bg">
     <div class="hero-carousel-track">
       <img src="/Asset/DHM - Squid Game (MOI).png" alt="Photo 1" />
       <img src="/Asset/Gabriel - Rappeur (moi).png" alt="Photo 2" />
-      <img src="Asset/Joyca & Inox - Talent.png" alt="Photo 3" />
+      <img src="Asset/Kev Adams & Pierre Croce - Concept (MOI) .png" alt="Photo 3" />
       <img src="/Asset/La France A Un Incroyable Talent (MOI).jpg" alt="Photo 4" />
     </div>
   </div>
+
+  <header class="main-header">
+    <nav>
+      <ul>
+        <li><a href="#formContainer">Contact</a></li>
+        <li><a href="#apparitions">Mes Apparitions</a></li>
+        <li><a href="#reseaux">Mes Réseaux</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <div class="hero-content">
     <h1>Gabriel Vuitton</h1>
     <p>✩Bienvenue dans l'univers de l'illusion et du rêve !</p>
@@ -36,17 +37,23 @@
     <p>Spectacles pour enfants, soirées d'entreprise, mariages ou événements privés — chaque prestation est conçue pour émerveiller et captiver.</p>
     <p>Laissez-vous transporter par des tours de magie modernes, interactifs et remplis de mystère.</p>
     <p>Préparez-vous à voir l'impossible devenir réalité... sous vos yeux ! 🎩✨</p>
-    <div class="carousel-container">
-        
+  </div>
+</section>
 
-    <button class="btn-toggle-form" onclick="toggleForm()">Contacter Moi !</button>
+<!-- Le reste du site commence ici -->
 
-<div class="form-wrapper" id="formContainer" style="display: none;">
-  <form
-    action="https://formspree.io/f/xkgrlyql"
-    method="POST"
-    class="form"
-  >
+<h2 class="apparitions-title">Mes apparitions</h2>
+
+<div class="main-content">
+  <button class="btn-toggle-form" onclick="toggleForm()">Contacter Moi !</button>
+
+  <div class="form-wrapper" id="formContainer" style="display: none;">
+    <form
+      action="https://formspree.io/f/xkgrlyql"
+      method="POST"
+      class="form"
+    >
+    
     <p>Formulaire de contact<br><span>Je réponds rapidement !</span></p>
 
     <input type="email" name="email" placeholder="Votre email" required />
@@ -57,132 +64,11 @@
     </button>
   </form>
 </div>
-  </div>
-</section>
 
-<!-- Le reste de ton site -->
-<div class="main-content">
     <!-- Carrousel d'avis -->
 <div class="reviews-carousel-container">
-  <div class="reviews-carousel-track" id="reviewsCarouselTrack">
-    <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Jean Dupont</div>
-                </div>
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">Super expérience ! Le service était impeccable et l’ambiance très agréable.</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Claire Lemoine</div>
-                </div>
-                <div class="review-stars">★★★★☆</div>
-                <div class="review-text">Très bon moment passé ici. Je recommande vivement cet endroit !</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Paul Martin</div>
-                </div>
-                <div class="review-stars">★★★★☆</div>
-                <div class="review-text">Endroit charmant, personnel aux petits soins. Juste un peu d’attente.</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Sophie Laurent</div>
-                </div>
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">Incroyable ! Une des meilleures expériences que j’ai eues.</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Lucas Renaud</div>
-                </div>
-                <div class="review-stars">★★★☆☆</div>
-                <div class="review-text">C’était correct mais je m’attendais à mieux vu les avis.</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Emma Girard</div>
-                </div>
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">Parfait du début à la fin. Merci pour ce beau moment.</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Nina Moreau</div>
-                </div>
-                <div class="review-stars">★★★★☆</div>
-                <div class="review-text">Très bon accueil, je reviendrai sans hésiter. L’endroit est chaleureux.</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Adrien Lefèvre</div>
-                </div>
-                <div class="review-stars">★★☆☆☆</div>
-                <div class="review-text">Service lent et plats tièdes. Un peu déçu malgré les avis positifs.</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Camille Robert</div>
-                </div>
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">Une expérience inoubliable ! Tout était parfait du début à la fin.</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Léo Mercier</div>
-                </div>
-                <div class="review-stars">★★★☆☆</div>
-                <div class="review-text">Correct sans plus. Le cadre est beau mais la nourriture moyenne.</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Élise Bernard</div>
-                </div>
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">J’ai adoré ! Personnel souriant et repas délicieux. Merci !</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Théo Gauthier</div>
-                </div>
-                <div class="review-stars">★★★★☆</div>
-                <div class="review-text">Un peu d’attente mais cela valait le coup. Ambiance conviviale.</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-card-header">
-                    <div class="review-avatar"></div>
-                    <div class="review-username">Julie Perrot</div>
-                </div>
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">Coup de cœur total ! Je recommande à 100% cet endroit.</div>
-            </div>
-  </div>
-</div>
+        <div class="reviews-carousel-track" id="reviewsCarouselTrack"></div>
+    </div>
 
 <!-- Gestionnaire d'avis : bouton + formulaire -->
 <button class="btn-toggle-avis" id="toggleAvisBtn">Partager son expérience</button>
