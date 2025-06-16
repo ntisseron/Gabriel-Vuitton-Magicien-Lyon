@@ -659,39 +659,29 @@ p {
   z-index: 1;
 }
 
-.hero-carousel-bg {
+.hero-bg-single {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   z-index: 0;
   overflow: hidden;
 }
-
-.hero-carousel-track {
-  display: flex;
-  width: 400vw; /* 4 images */
-  height: 100%;
-  animation: hero-carousel-slide 16s linear infinite;
-}
-
-.hero-carousel-track img {
+.hero-bg-single img {
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
-  flex-shrink: 0;
   filter: brightness(0.7) blur(1px);
-  opacity: 0.95; /* Ajoute cette ligne */
+  opacity: 0.95;
+  display: block;
 }
-
-@keyframes hero-carousel-slide {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(0); }
-  25% { transform: translateX(-100vw); }
-  45% { transform: translateX(-100vw); }
-  50% { transform: translateX(-200vw); }
-  70% { transform: translateX(-200vw); }
-  75% { transform: translateX(-300vw); }
-  95% { transform: translateX(-300vw); }
-  100% { transform: translateX(0); }
+.hero-section {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
 }
 
 .hero-content {
@@ -759,4 +749,116 @@ p {
   text-shadow: 0 2px 16px #222, 0 0 8px #ffe06699;
   margin: 40px 0 30px 0;
   letter-spacing: 2px;
+}
+.carousel2 {
+    width: 80%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-inner2 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item2 {
+    flex: 0 0 calc(100% / 3);
+    box-sizing: border-box;
+    padding: 10px;
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Image par défaut : pas assombrie */
+.carousel-item2 img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(100%);
+    transition: filter 0.5s ease-in-out;
+}
+
+/* Image NON active : réinitialisation immédiate */
+.carousel-item2:not(.active2) img {
+    filter: brightness(100%);
+    transition-delay: 0s !important;
+}
+
+/* Image active : assombrissement retardé */
+.carousel-item2.active2 img {
+    filter: brightness(50%);
+    transition-delay: 1.5s;
+}
+
+/* Slides non actifs */
+.carousel-item2:not(.active2) {
+    filter: grayscale(70%) brightness(70%);
+    transform: scale(0.9);
+}
+
+/* Slide actif : zoom */
+.carousel-item2.active2 {
+    transform: scale(1.05);
+}
+
+/* Boutons de contrôle */
+.carousel-control2 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+}
+
+.carousel-control2.prev2 {
+    left: 10px;
+}
+
+.carousel-control2.next2 {
+    right: 10px;
+}
+
+/* Texte central masqué par défaut */
+.carousel2-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease-in-out;
+  z-index: 2;
+}
+
+.carousel-item2.active2 .carousel2-caption {
+  opacity: 1;
+  transition-delay: 1.5s;
+}
+
+.carousel2-title, .carousel2-subtitle {
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #fff 20%, #ffe066 50%, #fff 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.carousel2-title {
+  font-size: 2em;
+  margin-bottom: 8px;
+}
+
+.carousel2-subtitle {
+  font-size: 1.1em;
 }

@@ -102,3 +102,65 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', handleScroll);
   handleScroll(); // Appel initial
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const carouselInner = document.querySelector('.carousel-inner2');
+    let items = document.querySelectorAll('.carousel-item2');
+    let currentIndex = 1;
+
+    // Clone first and last
+    const firstClone = items[0].cloneNode(true);
+    const lastClone = items[items.length - 1].cloneNode(true);
+    firstClone.id = "first-clone2";
+    lastClone.id = "last-clone2";
+
+    carouselInner.appendChild(firstClone);
+    carouselInner.insertBefore(lastClone, items[0]);
+
+    // Refresh list
+    items = document.querySelectorAll('.carousel-item2');
+    const totalItems = items.length;
+    const itemWidthPercent = 100 / 3;
+
+    carouselInner.style.transform = `translateX(-${itemWidthPercent}%)`;
+
+    function updateCarousel(transition = true) {
+        carouselInner.style.transition = transition ? 'transform 0.5s ease-in-out' : 'none';
+        const offset = -currentIndex * itemWidthPercent;
+        carouselInner.style.transform = `translateX(${offset}%)`;
+
+        items.forEach(item => item.classList.remove('active2'));
+        const middleIndex = currentIndex + 1;
+        if (items[middleIndex]) {
+            items[middleIndex].classList.add('active2');
+        }
+    }
+
+    window.nextSlide2 = function () {
+        if (currentIndex >= totalItems - 1) return;
+        currentIndex++;
+        updateCarousel();
+        carouselInner.addEventListener('transitionend', handleTransitionEnd);
+    }
+
+    window.prevSlide2 = function () {
+        if (currentIndex <= 0) return;
+        currentIndex--;
+        updateCarousel();
+        carouselInner.addEventListener('transitionend', handleTransitionEnd);
+    }
+
+    function handleTransitionEnd() {
+        if (items[currentIndex].id === 'first-clone2') {
+            currentIndex = 1;
+            updateCarousel(false);
+        }
+        if (items[currentIndex].id === 'last-clone2') {
+            currentIndex = totalItems - 2;
+            updateCarousel(false);
+        }
+        carouselInner.removeEventListener('transitionend', handleTransitionEnd);
+    }
+
+    updateCarousel();
+});
