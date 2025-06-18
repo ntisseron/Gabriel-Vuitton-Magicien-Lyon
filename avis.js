@@ -1,3 +1,4 @@
+// Configuration de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDUQRpzjbC5uUIvkuQV740shG_4jA1rR0k",
   authDomain: "gestionavisv1.firebaseapp.com",
@@ -8,6 +9,7 @@ const firebaseConfig = {
   measurementId: "G-02TE7LQQ71"
 };
 
+// Initialisation de Firebase
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
@@ -31,6 +33,20 @@ document.querySelectorAll('.star').forEach(star => {
   });
 });
 
+// Fonction pour générer une couleur de fond aléatoire avec opacité
+function getRandomColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgba(${r}, ${g}, ${b}, 0.5)`; // Opacité réduite à 0.5
+}
+
+// Fonction pour obtenir un symbole de carte aléatoire
+function getRandomCardSymbol() {
+  const cardSymbols = ['♥', '♦', '♠', '♣']; // Cœur, Carreau, Pique, Trèfle
+  return cardSymbols[Math.floor(Math.random() * cardSymbols.length)];
+}
+
 // Gestion de la soumission du formulaire avec honeypot et limitation de soumission
 document.getElementById("avisForm").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -51,7 +67,7 @@ document.getElementById("avisForm").addEventListener("submit", async (e) => {
   const userSubmissions = JSON.parse(localStorage.getItem('userSubmissions') || '[]');
   const lastSubmission = userSubmissions.length > 0 ? new Date(userSubmissions[userSubmissions.length - 1]) : null;
 
-  if (lastSubmission && (now - lastSubmission) < 1000) { // Limite à une soumission par heure
+  if (lastSubmission && (now - lastSubmission) < 3600000) { // Limite à une soumission par heure
     alert("Vous avez déjà soumis un avis récemment. Veuillez patienter avant de soumettre un nouvel avis.");
     return;
   }
@@ -83,6 +99,7 @@ document.getElementById("avisForm").addEventListener("submit", async (e) => {
   }
 });
 
+// Charger les avis depuis Firestore
 async function chargerAvis() {
   const container = document.getElementById("reviewsCarouselTrack");
   container.innerHTML = "";
@@ -93,9 +110,14 @@ async function chargerAvis() {
     const reviewCard = document.createElement("div");
     reviewCard.className = "review-card";
 
+    // Générer une couleur de fond aléatoire avec opacité
+    const backgroundColor = getRandomColor();
+    // Obtenir un symbole de carte aléatoire
+    const cardSymbol = getRandomCardSymbol();
+
     reviewCard.innerHTML = `
       <div class="review-card-header">
-        <div class="review-avatar"></div>
+        <div class="review-avatar" style="background-color: ${backgroundColor}">${cardSymbol}</div>
         <div class="review-username">${data.nom}</div>
       </div>
       <div class="review-stars">${'★'.repeat(data.note)}${'☆'.repeat(5 - data.note)}</div>
@@ -106,4 +128,5 @@ async function chargerAvis() {
   });
 }
 
+// Charger les avis au démarrage
 window.addEventListener("DOMContentLoaded", chargerAvis);

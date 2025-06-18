@@ -18,7 +18,7 @@
   <header class="main-header">
     <nav>
       <ul>
-        <li><a href="#formContainer">Contact</a></li>
+        <li><a href="#Contact">Contact</a></li>
         <li><a href="#apparitions">Mes Apparitions</a></li>
         <li><a href="#reseaux">Mes Réseaux</a></li>
       </ul>
@@ -26,13 +26,17 @@
   </header>
 
   <div class="hero-content">
-    <h1>Gabriel Vuitton</h1>
-    <p>✩Bienvenue dans l'univers de l'illusion et du rêve !</p>
-    <p>Je suis [Nom du Magicien], artiste magicien professionnel, et je vous invite à vivre une expérience unique où le réel se mêle à l'impossible.</p>
-    <p>Spectacles pour enfants, soirées d'entreprise, mariages ou événements privés — chaque prestation est conçue pour émerveiller et captiver.</p>
-    <p>Laissez-vous transporter par des tours de magie modernes, interactifs et remplis de mystère.</p>
-    <p>Préparez-vous à voir l'impossible devenir réalité... sous vos yeux ! 🎩✨</p>
-  </div>
+    <div class="gabrielvuitton-title">
+      <span class="gabrielvuitton-gabriel">Gabriel</span><br>
+      <span class="gabrielvuitton-vuitton">Vuitton</span>
+      <div class="gabrielvuitton-description">
+        <p>✩Bienvenue dans l'univers de l'illusion et du rêve !</p>
+        <p>Je suis [Nom du Magicien], artiste magicien professionnel, et je vous invite à vivre une expérience unique où le réel se mêle à l'impossible.</p>
+        <p>Spectacles pour enfants, soirées d'entreprise, mariages ou événements privés — chaque prestation est conçue pour émerveiller et captiver.</p>
+        <p>Laissez-vous transporter par des tours de magie modernes, interactifs et remplis de mystère.</p>
+        <p>Préparez-vous à voir l'impossible devenir réalité... sous vos yeux ! 🎩✨</p>
+      </div>
+    </div>
 </section>
 
 <!-- Le reste du site commence ici -->
@@ -97,7 +101,7 @@
 </div>
 
 <div class="main-content">
-  <button class="btn-toggle-form" onclick="toggleForm()">Contacter Moi !</button>
+  <button class="btn-toggle-form" onclick="toggleForm()">Contacter Moi !</button id="Contact">
 
   <div class="form-wrapper" id="formContainer" style="display: none;">
     <form
@@ -141,14 +145,16 @@
 </form>
 
 
-    <section class="tiktok-section">
+    <section class="tiktok-section" id="reseaux">
   <div class="tiktok-profile">
     <img src="/Asset/PhotoProfil.png" alt="Profil TikTok" class="tiktok-avatar" />
-    <div class="tiktok-stats">
-      <div><strong>151</strong> Suivis</div>
-      <div><strong>81.6k</strong> Followers</div>
-      <div><strong>1.5M</strong> J'aime</div>
-      <div class="tiktok-bio">🎤 INCROYABLE TALENT (saison 19)</div>
+    <div class="tiktok-info">
+      <div class="tiktok-username">@gabriel.vuitton</div>
+      <div class="tiktok-stats">
+        <span>Suivis : 160</span>
+        <span>Followers : 86.5K</span>
+        <span>J'aime : 1.5M</span>
+      </div>
     </div>
   </div>
 
