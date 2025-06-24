@@ -128,7 +128,7 @@ p {
 
 /* Section TikTok */
 .tiktok-section {
-  background: linear-gradient(360deg, #344D59 35%, #98c1cc 70%);
+  background: linear-gradient(360deg, #670600 35%, #FF3D34 70%);
   border-radius: 15px;
   padding: 40px 40px 32px 40px; /* Augmente le padding gauche/droite */
   width: 95vw;
@@ -178,6 +178,7 @@ p {
 
 /* Section TikTok vidéos : toujours en ligne, défilement horizontal si besoin */
 .tiktok-videos {
+  justify-content: center;
   display: flex;
   gap: 20px;
   overflow-x: auto;
@@ -660,22 +661,28 @@ p {
   position: relative;
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  background: #fff;
   position: absolute;
   backface-visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* même background pour test */
+  /* background: #fff; */
+  box-sizing: border-box; /* Ajouté pour éviter tout débordement */
+  padding: 0; /* S'assurer qu'il n'y a pas de padding parasite */
 }
 
 .flip-card-front img {
   width: 80%;
   height: auto;
   border-radius: 8px;
+  display: block;
+  margin: 0 auto;
 }
 
 .flip-card-back {
@@ -683,6 +690,9 @@ p {
   font-size: 0.9em;
   color: #222;
   background: #eee;
+  /* S'assurer qu'il n'y a pas de padding ou de border en plus */
+  box-sizing: border-box;
+  padding: 0;
 }
 
 /* Responsive : encore plus petit sur mobile */
@@ -708,6 +718,17 @@ p {
   margin-bottom: 20px;
   margin-top: 40px;
   letter-spacing: 1px;
+}
+
+.flip-card-front img,
+.flip-card-back img {
+  width: 80%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  max-height: 90%;
+  object-fit: contain;
 }
 
 /* Carrousel de fond limité à la section hero-section */
@@ -847,7 +868,7 @@ p {
 /* Image active : assombrissement retardé */
 .carousel-item2.active2 img {
     filter: brightness(50%);
-    transition-delay: 1.5s;
+    transition-delay: 0.5s;
 }
 
 /* Slides non actifs */
@@ -919,7 +940,7 @@ p {
 
 .carousel-item2.active2 .carousel2-caption {
   opacity: 1;
-  transition-delay: 1.5s;
+  transition-delay: 0.5s;
 }
 
 .carousel2-title, .carousel2-subtitle {
@@ -992,6 +1013,14 @@ p {
   letter-spacing: 2px;
   line-height: 1;
   text-shadow: 0 2px 12px #000a;
+  opacity: 0;
+  animation: fadeInGabriel 1.2s ease-in forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInGabriel {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .gabrielvuitton-vuitton {
@@ -1001,10 +1030,42 @@ p {
   letter-spacing: 2px;
   line-height: 1;
   margin-bottom: 18px;
-  background: linear-gradient(to top, #344D59 0%, #B8CBD0 100%);
+  background: linear-gradient(to bottom, #FF3D34 100%, #670600 30%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 2px 12px #000a;
+  opacity: 0;
+  transform: translateX(-120px);
+  animation: slideInVuitton 1.1s cubic-bezier(.77,.01,.29,1.01) forwards;
+  animation-delay: 1.1s;
+}
+
+@keyframes slideInVuitton {
+  from {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.gabrielvuitton-description {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUpDesc 1s cubic-bezier(.77,.01,.29,1.01) forwards;
+  animation-delay: 2.1s;
+}
+
+@keyframes fadeUpDesc {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
