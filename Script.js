@@ -80,27 +80,38 @@ document.getElementById('toggleAvisBtn').addEventListener('click', function() {
 // Flip progressif des cartes selon le scroll (effet Apple)
 document.addEventListener('DOMContentLoaded', function () {
   const cards = document.querySelectorAll('.flip-card');
-  const revealStep = 0.2; // 20% de visibilité pour chaque carte
+  let hasFlipped = false;
 
-  function handleScroll() {
-    const windowHeight = window.innerHeight;
+  function flipCardsSequentially() {
+    if (hasFlipped) return;
+    hasFlipped = true;
+    cards.forEach(card => card.classList.remove('flipped'));
     cards.forEach((card, idx) => {
-      const rect = card.getBoundingClientRect();
-      const visible = Math.max(0, Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0));
-      const percentVisible = visible / rect.height;
-
-      // Chaque carte se retourne à partir d'un certain seuil de scroll
-      if (percentVisible > (revealStep * (idx + 1))) {
+      setTimeout(() => {
         card.classList.add('flipped');
-      } else {
-        card.classList.remove('flipped');
-      }
+      }, 500 * idx);
     });
   }
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  window.addEventListener('resize', handleScroll);
-  handleScroll(); // Appel initial
+  function isCardsInView() {
+    if (cards.length === 0) return false;
+    const rect = cards[0].getBoundingClientRect();
+    return (
+      rect.top < window.innerHeight &&
+      rect.bottom > 0
+    );
+  }
+
+  function onScroll() {
+    if (isCardsInView()) {
+      flipCardsSequentially();
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  // Vérifie au chargement si les cartes sont déjà visibles
+  onScroll();
 });
 
 document.addEventListener('DOMContentLoaded', function () {

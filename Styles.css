@@ -1057,6 +1057,7 @@ p {
   transform: translateY(40px);
   animation: fadeUpDesc 1s cubic-bezier(.77,.01,.29,1.01) forwards;
   animation-delay: 2.1s;
+  
 }
 
 @keyframes fadeUpDesc {
@@ -1068,4 +1069,30 @@ p {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.gabrielvuitton-description p {
+  margin-bottom: 12px;
+}
+
+.gabrielvuitton-description p:last-child {
+  margin-bottom: 0;
+}
+
+.gabrielvuitton-description {
+  margin-top: 32px;
+  color: #fff;
+  font-size: 1.2em;
+  font-family: 'Pacifico', cursive;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px #000a;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2em;
+  color: #344D59;
+  margin-bottom: 24px;
+  margin-top: -10px;
+  letter-spacing: 1px;
 }
