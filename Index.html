@@ -52,7 +52,7 @@
             <img src="/Asset/Carousel2/Sasso.png" alt="Image 2">
             <div class="carousel2-caption">
                 <div class="carousel2-title">DEVINE QUI EST RAPPEUR !</div>
-                <div class="carousel2-subtitle">avec SASSO et JAYEL sur ma chaine youtube Gabreil Vuittno</div>
+                <div class="carousel2-subtitle">avec SASSO et JAYEL sur ma chaine youtube Gabriel Vuitton</div>
             </div>
         </div>
         <div class="carousel-item2">
@@ -97,19 +97,36 @@
 </div>
 
 <div class="main-content">
-  <button class="btn-toggle-form"  id="Contact" onclick="toggleForm()">Contacter Moi !</button id="Contact">
+  <button class="btn-toggle-form"  id="Contact" onclick="toggleForm()">Contactez-moi !</button id="Contact">
 
-  <div class="form-wrapper" id="formContainer" style="display: none;">
-    <form
-      action="https://formspree.io/f/xkgbooll"
-      method="POST"
-      class="form"
-    >
-    
-    <p>Formulaire de contact<br><span>Je réponds rapidement !</span></p>
+  <div class="form-wrapper" id="formContainer" style="display:none;">
+  <form
+    action="https://formspree.io/f/xkgbooll"
+    method="POST"
+    class="form"
+  >
+    <p class="form-title">
+      Formulaire de contact<br><span>Je réponds rapidement &nbsp;!</span>
+    </p>
 
-    <input type="email" name="email" placeholder="Votre email" required />
-    <textarea name="message" placeholder="Votre message" required></textarea>
+    <input
+      id="contactEmail"
+      type="email"
+      name="email"
+      placeholder="Saisir votre e-mail  "
+      required
+    />
+
+    <textarea
+      id="contactMessage"
+      name="message"
+      placeholder="Écrivez votre message ici…"
+      rows="6"
+      required
+    ></textarea>
+
+    <input type="hidden" name="_subject" value="Nouveau message depuis le site" />
+    <input type="hidden" name="_captcha" value="false" />
 
     <button type="submit" class="oauthButton">
       <span>Envoyer</span>
@@ -117,13 +134,10 @@
   </form>
 </div>
 
-    <!-- Carrousel d'avis -->
 <div class="reviews-carousel-container">
         <div class="reviews-carousel-track" id="reviewsCarouselTrack"></div>
-        <button class="btn-toggle-avis" id="toggleAvisBtn">Partager son expérience</button>
+        <button class="btn-toggle-avis" id="toggleAvisBtn">Partagez votre expérience</button>
     </div>
-
-<!-- Gestionnaire d'avis : bouton + formulaire -->
 
 
 <form id="avisForm" style="display: none;">
@@ -169,11 +183,11 @@
 
 </section>
 
-<h2 class="section-title">Retrouvez moi ici</h2>
+<h2 class="section-title">Retrouvez-moi ici</h2>
 <p class="section-subtitle">Cliquez sur la carte pour découvrir</p>
 <div class="flip-card-wrapper">
   <div class="flip-card-container">
-    <a href="https://www.tiktok.com/@tonprofil" target="_blank" class="flip-card">
+    <a href="https://www.tiktok.com/@gabriel.vuitton" target="_blank" class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img src="/Asset/carte_bleu.png" alt="TikTok">
@@ -183,7 +197,7 @@
         </div>
       </div>
     </a>
-    <a href="https://www.instagram.com/tonprofil" target="_blank" class="flip-card">
+    <a href="https://www.instagram.com/gabriel_vuitton/" target="_blank" class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img src="/Asset//carte_rouge.png" alt="Instagram">
@@ -193,7 +207,7 @@
         </div>
       </div>
     </a>
-    <a href="https://www.youtube.com/tonprofil" target="_blank" class="flip-card">
+    <a href="https://www.youtube.com/@gabrielvuitton" target="_blank" class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img src="/Asset/carte_bleu.png" alt="YouTube">
