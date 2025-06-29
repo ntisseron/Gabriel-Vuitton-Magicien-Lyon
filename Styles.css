@@ -1030,11 +1030,7 @@ p {
   letter-spacing: 2px;
   line-height: 1;
   margin-bottom: 18px;
-  background: linear-gradient(to bottom, #FF3D34 100%, #8a0902 0%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  color: #D5CABC; /* Mets ici la couleur que tu veux */
   opacity: 0;
   transform: translateX(-120px);
   animation: slideInVuitton 1.1s cubic-bezier(.77,.01,.29,1.01) forwards;
