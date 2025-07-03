@@ -1,30 +1,36 @@
+function getVisibleCount() {
+  if (window.innerWidth <= 600)   return 1; // mobile
+  if (window.innerWidth <= 1024)  return 2; // tablette
+  return 3;                                   // desktop
+}
+
 const totalImages = 10;
 const visibleImages = 3;
 let scrollIndex = 0;
 
 function scrollLeft() {
-    if (scrollIndex > 0) {
-        scrollIndex--;
-    } else {
-        scrollIndex = totalImages - visibleImages;
-    }
-    updateScroll();
+  if (scrollIndex > 0) {
+    scrollIndex--;
+  } else {
+    scrollIndex = totalImages - 1;
+  }
+  updateScroll();
 }
 
 function scrollRight() {
-    const maxIndex = totalImages - visibleImages;
-    if (scrollIndex < maxIndex) {
-        scrollIndex++;
-    } else {
-        scrollIndex = 0;
-    }
-    updateScroll();
+  if (scrollIndex < totalImages - 1) {
+    scrollIndex++;
+  } else {
+    scrollIndex = 0;
+  }
+  updateScroll();
 }
 
 function updateScroll() {
-    const imageWidth = 300 + 30; // largeur + espacement
-    const offset = scrollIndex * imageWidth;
-    carousel.style.transform = `translateX(-${offset}px)`;
+  const carouselItem = document.querySelector('.carousel-item2');
+  const imageWidth = carouselItem.offsetWidth + 30; // Utilise la largeur réelle de l'élément
+  const offset = scrollIndex * imageWidth;
+  document.querySelector('.carousel-inner2').style.transform = `translateX(-${offset}px)`;
 }
 
 const track = document.getElementById("reviewsCarouselTrack");
@@ -115,63 +121,79 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    const carouselInner = document.querySelector('.carousel-inner2');
-    let items = document.querySelectorAll('.carousel-item2');
-    let currentIndex = 1;
+  const carouselInner = document.querySelector('.carousel-inner2');
+  let items = document.querySelectorAll('.carousel-item2');
+  let currentIndex = 1;
 
-    // Clone first and last
-    const firstClone = items[0].cloneNode(true);
-    const lastClone = items[items.length - 1].cloneNode(true);
-    firstClone.id = "first-clone2";
-    lastClone.id = "last-clone2";
+  /* === 1. Clonage des extrémités pour le défilement infini === */
+  const firstClone = items[0].cloneNode(true);
+  const lastClone  = items[items.length - 1].cloneNode(true);
+  firstClone.id = 'first-clone2';
+  lastClone.id  = 'last-clone2';
+  carouselInner.appendChild(firstClone);
+  carouselInner.insertBefore(lastClone, items[0]);
 
-    carouselInner.appendChild(firstClone);
-    carouselInner.insertBefore(lastClone, items[0]);
+  // Re‑sélectionne après clonage
+  items = document.querySelectorAll('.carousel-item2');
 
-    // Refresh list
-    items = document.querySelectorAll('.carousel-item2');
-    const totalItems = items.length;
-    const itemWidthPercent = 100 / 3;
+  /* === 2. Variables dépendant de la largeur d’écran === */
+  let visibleCount   = getVisibleCount();   // 1, 2 ou 3
+  let itemWidthPct   = 100 / visibleCount; // 100, 50, 33.33…
 
-    carouselInner.style.transform = `translateX(-${itemWidthPercent}%)`;
+  // Applique la largeur (flex‑basis) à chaque slide
+  items.forEach(it => it.style.flex = `0 0 ${itemWidthPct}%`);
 
-    function updateCarousel(transition = true) {
-        carouselInner.style.transition = transition ? 'transform 0.5s ease-in-out' : 'none';
-        const offset = -currentIndex * itemWidthPercent;
-        carouselInner.style.transform = `translateX(${offset}%)`;
+  // Positionne le carrousel pour afficher la 1ʳᵉ vraie slide au centre
+  carouselInner.style.transform = `translateX(-${itemWidthPct}%)`;
 
-        items.forEach(item => item.classList.remove('active2'));
-        const middleIndex = currentIndex + 1;
-        if (items[middleIndex]) {
-            items[middleIndex].classList.add('active2');
-        }
-    }
+  /* === 3. Fonction de mise à jour === */
+  function updateCarousel(animate = true) {
+    // Si on a redimensionné l’écran, recalcule
+    visibleCount = getVisibleCount();
+    itemWidthPct = 100 / visibleCount;
+    items.forEach(it => it.style.flex = `0 0 ${itemWidthPct}%`);
 
-    window.nextSlide2 = function () {
-        if (currentIndex >= totalItems - 1) return;
-        currentIndex++;
-        updateCarousel();
-        carouselInner.addEventListener('transitionend', handleTransitionEnd);
-    }
+    carouselInner.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+    carouselInner.style.transform  = `translateX(-${currentIndex * itemWidthPct}%)`;
 
-    window.prevSlide2 = function () {
-        if (currentIndex <= 0) return;
-        currentIndex--;
-        updateCarousel();
-        carouselInner.addEventListener('transitionend', handleTransitionEnd);
-    }
+    // Gestion de la classe active2 (toujours l’élément au milieu)
+    items.forEach(it => it.classList.remove('active2'));
+    const middle = currentIndex + 1; // à cause du clone en tête
+    if (items[middle]) items[middle].classList.add('active2');
+  }
 
-    function handleTransitionEnd() {
-        if (items[currentIndex].id === 'first-clone2') {
-            currentIndex = 1;
-            updateCarousel(false);
-        }
-        if (items[currentIndex].id === 'last-clone2') {
-            currentIndex = totalItems - 2;
-            updateCarousel(false);
-        }
-        carouselInner.removeEventListener('transitionend', handleTransitionEnd);
-    }
-
+  /* === 4. Navigation === */
+  window.nextSlide2 = function () {
+    if (currentIndex >= items.length - 1) return;
+    currentIndex++;
     updateCarousel();
+    carouselInner.addEventListener('transitionend', handleLoop);
+  };
+
+  window.prevSlide2 = function () {
+    if (currentIndex <= 0) return;
+    currentIndex--;
+    updateCarousel();
+    carouselInner.addEventListener('transitionend', handleLoop);
+  };
+
+  /* === 5. Bouclage infini === */
+  function handleLoop() {
+    if (items[currentIndex].id === 'first-clone2') {
+      currentIndex = 1;                 // saute au vrai 1ᵉʳ
+      updateCarousel(false);
+    }
+    if (items[currentIndex].id === 'last-clone2') {
+      currentIndex = items.length - 2;  // saute au vrai dernier
+      updateCarousel(false);
+    }
+    carouselInner.removeEventListener('transitionend', handleLoop);
+  }
+
+  /* === 6. Re‑calcul sur redimensionnement === */
+  window.addEventListener('resize', () => updateCarousel(false));
+
+  /* === 7. Initialisation === */
+  updateCarousel(false);
 });
+

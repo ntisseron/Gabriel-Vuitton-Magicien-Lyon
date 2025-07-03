@@ -1057,7 +1057,7 @@ p {
 }
 
 .carousel2 {
-  width: 80%;
+  width: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -1065,6 +1065,7 @@ p {
 .carousel-inner2 {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  width: 100%;
 }
 
 .carousel-item2 {
@@ -1076,40 +1077,32 @@ p {
   overflow: hidden;
 }
 
-/* Image par défaut : pas assombrie */
 .carousel-item2 img {
   width: 100%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  filter: brightness(100%);
-  transition: filter 0.5s ease-in-out;
 }
 
-/* Image NON active : réinitialisation immédiate */
 .carousel-item2:not(.active2) img {
   filter: brightness(100%);
   transition-delay: 0s !important;
 }
 
-/* Image active : assombrissement retardé */
 .carousel-item2.active2 img {
   filter: brightness(50%);
   transition-delay: 0.5s;
 }
 
-/* Slides non actifs */
 .carousel-item2:not(.active2) {
   filter: grayscale(70%) brightness(70%);
   transform: scale(0.9);
 }
 
-/* Slide actif : zoom */
 .carousel-item2.active2 {
   transform: scale(1.05);
 }
 
-/* Boutons de contrôle */
 .carousel-control2 {
   position: absolute;
   top: 50%;
@@ -1124,18 +1117,14 @@ p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
   z-index: 10;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .carousel-control2.prev2 {
-  left: 12px;
+  left: 10px;
 }
 
 .carousel-control2.next2 {
-  right: 12px;
+  right: 10px;
 }
 
 .carousel-control2:hover {
@@ -1150,7 +1139,6 @@ p {
   color: #222;
 }
 
-/* Texte central masqué par défaut */
 .carousel2-caption {
   position: absolute;
   top: 50%;
@@ -1170,7 +1158,7 @@ p {
 
 .carousel2-title,
 .carousel2-subtitle {
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 1px;
   background: linear-gradient(90deg, #fff 20%, #ffe066 50%, #fff 80%);
   background-size: 200% auto;
@@ -1181,12 +1169,30 @@ p {
 }
 
 .carousel2-title {
-  font-size: 2em;
+  font-size: 3em;
   margin-bottom: 8px;
 }
 
 .carousel2-subtitle {
   font-size: 1.1em;
+}
+
+@media (max-width: 1024px) {
+  .carousel-item2 {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-item2 {
+    flex: 0 0 100%;
+  }
+}
+@media (max-width: 600px) {
+  .carousel-item2 .carousel2-caption {
+    opacity: 1 !important;
+    transition-delay: 0.5s;
+  }
 }
 
 .apparitions-section {
@@ -1368,35 +1374,7 @@ p {
     margin: 24px 0 18px 0;
   }
 
-  .carousel2,
-  .carousel-inner2 {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    left: 50%;
-    transform: translateX(-50%);
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-  .carousel-item2 img {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    height: 80vw !important;
-    object-fit: cover !important;
-    border-radius: 0 !important;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .carousel2-caption,
-  .carousel2-title,
-  .carousel2-subtitle {
-    font-size: 1em;
-    padding: 0 6%;
-  }
-
+ 
   .btn-toggle-form,
   .btn-toggle-avis {
     font-size: 1em;
