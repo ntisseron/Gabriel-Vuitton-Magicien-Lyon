@@ -126,6 +126,19 @@ p {
   color: #333;
 }
 
+@media (max-width: 767px) {
+  .review-card {
+    flex: 0 0 calc(50% - 20px); /* Affiche deux avis à la fois sur les appareils mobiles */
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .review-card {
+    flex: 0 0 100%; /* Affiche un seul avis à la fois sur les très petits écrans */
+    width: 100%;
+  }
+}
 /* SECTION TIKTOK */
 .tiktok-section {
   background: linear-gradient(360deg, #670600 35%, #FF3D34 70%);
@@ -1057,7 +1070,7 @@ p {
 }
 
 .carousel2 {
-  width: 100%;
+  width: 90%;
   overflow: hidden;
   position: relative;
 }
@@ -1386,15 +1399,6 @@ p {
   .form {
     max-width: 98%;
     padding: 10px;
-  }
-
-  .reviews-carousel-container {
-    padding: 16px 0;
-  }
-
-  .review-card {
-    max-width: 95%;
-    font-size: 0.95em;
   }
 
   .tiktok-section {
