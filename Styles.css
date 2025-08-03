@@ -19,7 +19,7 @@ body {
   font-family: Arial, sans-serif;
   background: url('') no-repeat center center fixed;
   background-size: cover;
-background: linear-gradient(to bottom, #ffffffd7 20%, #000000 100%);
+ background: linear-gradient(180deg, #ebf7fa 15%, #1e2c33 90%);
   color: black;
   margin: 0;
   padding: 0;
@@ -639,7 +639,7 @@ p {
   margin: 20px auto;
   padding: 10px 20px;
   background: var(--main-color);
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   font: 700 16px sans-serif;
@@ -1258,4 +1258,102 @@ video {
   max-width: 100%;
   height: auto;
 }
+}
+
+
+.container {
+  display: flex;
+}
+
+.Btn {
+  border: none;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.instagram {
+  background: #f09433;
+  background: -moz-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+}
+
+.youtube {
+  background-color: #ff0000;
+}
+
+.twitter {
+  background-color: #000000;
+}
+
+.Btn:hover {
+  width: 250px;
+  transition-duration: 0.4s;
+  border-radius: 30px;
+}
+
+.Btn:hover .text {
+  opacity: 1;
+  transition-duration: 0.4s;
+}
+
+.Btn:hover .svgIcon {
+  opacity: 0;
+  transition-duration: 0.3s;
+}
+
+.text {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  width: 120px;
+  font-weight: 600;
+  opacity: 0;
+  transition-duration: 0.4s;
+}
+
+.svgIcon {
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.Btn.tiktok .svgIcon {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+  padding: 6px; /* réduit visuellement la taille du logo dans le cercle */
+  box-sizing: border-box;
 }
