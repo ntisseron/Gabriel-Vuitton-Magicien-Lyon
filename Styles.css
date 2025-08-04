@@ -420,20 +420,6 @@ p {
 }
 
 /* APPARITIONS */
-.apparitions-title {
-  text-align: center;
-  font-size: 2.8em;
-  font-weight: 900;
-  letter-spacing: 2px;
-  margin: 40px 0 30px 0;
-  background: linear-gradient(90deg, #DAAB3A 20%, #B67332 50%, #93441A 80%);
-  background-size: 200% auto;
-  color: #222;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .apparitions-section {
   background: linear-gradient(135deg, #B8CBD0 80%, #344D59 50%);
   width: 100%;
@@ -528,14 +514,6 @@ p {
   margin-bottom: 0;
 }
 
-.section-subtitle {
-  text-align: center;
-  font-size: 1.2em;
-  color: #344D59;
-  margin-bottom: 24px;
-  margin-top: -10px;
-  letter-spacing: 1px;
-}
 
 /* FORMULAIRES */
 .form-wrapper {
@@ -772,14 +750,21 @@ p {
 
 .section-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
-  color: var(--main-color, #323232);
   margin-bottom: 20px;
   margin-top: 40px;
   letter-spacing: 1px;
-}
 
+  background: linear-gradient(90deg, #fff 20%, #ffe066 50%, #fff 80%);
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  color: transparent; /* sécurité pour navigateurs sans background-clip */
+}
 
 /* Carrousel de fond limité à la section hero-section */
 .hero-bg-single {
@@ -872,16 +857,20 @@ p {
 
 .apparitions-title {
   text-align: center;
-  font-size: 2.8em;
-  font-weight: 900;
-  letter-spacing: 2px;
-  margin: 40px 0 30px 0;
-  background: linear-gradient(90deg, #DAAB3A 20%, #B67332 50%, #93441A 80%);
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  letter-spacing: 1px;
+
+  background: linear-gradient(90deg, #fff 20%, #ffe066 50%, #fff 80%);
   background-size: 200% auto;
-  color: #222;
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+
+  color: transparent; /* sécurité pour navigateurs sans background-clip */
 }
 
 .carousel2 {
@@ -1154,7 +1143,7 @@ p {
 .section-subtitle {
   text-align: center;
   font-size: 1.2em;
-  color: #344D59;
+  color: #ffffff;
   margin-bottom: 24px;
   margin-top: -10px;
   letter-spacing: 1px;
@@ -1260,100 +1249,254 @@ video {
 }
 }
 
-
-.container {
-  display: flex;
-}
-
-.Btn {
-  border: none;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition-duration: 0.4s;
-  cursor: pointer;
+.btn-tiktok {
   position: relative;
-  overflow: hidden;
-  margin-left: 10px;
-}
-
-.instagram {
-  background: #f09433;
-  background: -moz-linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
-  );
-  background: -webkit-linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
-  );
-  background: linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
-}
-
-.youtube {
-  background-color: #ff0000;
-}
-
-.twitter {
-  background-color: #000000;
-}
-
-.Btn:hover {
-  width: 250px;
-  transition-duration: 0.4s;
+  width: 230px;           /* ⬆ largeur */
+  height: 50px;           /* ⬆ hauteur */
   border-radius: 30px;
+  background-color: white;
+  border: 1px solid #111111;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.Btn:hover .text {
-  opacity: 1;
-  transition-duration: 0.4s;
-}
-
-.Btn:hover .svgIcon {
-  opacity: 0;
-  transition-duration: 0.3s;
-}
-
-.text {
-  position: absolute;
-  color: rgb(255, 255, 255);
-  width: 120px;
+.btn-tiktok-text1 {
+  font-size: 22px;        /* ⬆ taille texte principal */
   font-weight: 600;
-  opacity: 0;
-  transition-duration: 0.4s;
+  margin-left: 28%;
 }
 
-.svgIcon {
-  transition-duration: 0.3s;
+.btn-tiktok-text2 {
+  position: absolute;
+  top: 25%;
+  left: -50px;
+  font-weight: 700;
+  font-size: 18px;        /* ⬆ taille texte secondaire */
+  color: white;
+  opacity: 0;             /* 👈 masqué */
+  visibility: hidden;     /* 👈 accessibilité + éviter clics */
+  transition: transform 0.6s, opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.svgIcon path {
-  fill: white;
+.btn-tiktok:hover .btn-tiktok-text2 {
+  transform: translateX(112px); /* ⬆ adaptation translation */
+  opacity: 1;                  /* 👈 visible */
+  visibility: visible;
 }
 
-.Btn.tiktok .svgIcon {
-  height: 100%;
+.btn-tiktok-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s;
+}
+
+.btn-tiktok-icon svg {
+  width: 50px;            /* ⬆ taille SVG */
+  height: 50px;
+}
+
+.btn-tiktok-icon::before {
+  position: absolute;
+  left: -200px;
+  top: 0;
+  z-index: -1;
+  content: '';
+  width: 270px;           /* ⬆ taille zone hover */
+  height: 50px;
+  border-radius: 30px;
+  background-color: #111111;
+}
+
+.btn-tiktok:hover .btn-tiktok-icon {
+  transform: translateX(178px); /* ⬆ adaptation translation */
+}
+
+.btn-tiktok:active {
+  transform: scale(1.03);
+}
+
+
+/*Instagram*/
+
+.btn-youtube {
+  position: relative;
+  width: 230px;         /* ⬆ largeur */
+  height: 50px;         /* ⬆ hauteur */
+  border-radius: 30px;
+  background-color: white;
+  border: 1px solid #FFB700;
+  overflow: hidden;
+}
+
+.btn-youtube-text1 {
+  font-size: 22px;       /* ⬆ taille texte principal */
+  font-weight: 600;
+  margin-left: 28%;
+}
+
+.btn-youtube-text2 {
+  position: absolute;
+  top: 25%;
+  left: -50px;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  opacity: 0;              /* 👈 masqué */
+  visibility: hidden;      /* 👈 accessibilité et éviter clics */
+  transition: transform 0.6s, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.btn-youtube:hover .btn-youtube-text2 {
+  transform: translateX(100px);
+  opacity: 1;              /* 👈 devient visible */
+  visibility: visible;
+}
+.btn-youtube-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s;
+}
+
+.btn-youtube-icon svg {
+  width: 50px;           /* ⬆ taille SVG */
+  height: 50px;
+}
+
+.btn-youtube-icon::before {
+  position: absolute;
+  left: -200px;
+  top: 0;
+  z-index: -1;
+  content: '';
+  width: 270px;          /* ⬆ adapt. taille zone hover */
+  height: 50px;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ffb900, #9100eb);
+}
+
+.btn-youtube:hover .btn-youtube-icon {
+  transform: translateX(178px); /* ⬆ adaptation translation */
+}
+
+.btn-youtube:hover .btn-youtube-text2 {
+  transform: translateX(112px);
+  transition: transform 0.6s;
+}
+
+.btn-youtube:active {
+  transform: scale(1.03);
+}
+
+
+
+/*Youtube*/
+
+
+.btn-instagram {
+  position: relative;
+  width: 230px;           /* ⬆ largeur */
+  height: 50px;           /* ⬆ hauteur */
+  border-radius: 30px;
+  background-color: white;
+  border: 1px solid #cd201f;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn-instagram-text1 {
+  font-size: 22px;        /* ⬆ taille texte principal */
+  font-weight: 600;
+  margin-left: 28%;
+}
+
+.btn-instagram-text2 {
+  position: absolute;
+  top: 25%;
+  left: -50px;
+  font-weight: 700;
+  font-size: 18px;        /* ⬆ taille texte secondaire */
+  color: white;
+  opacity: 0;             /* 👈 masqué */
+  visibility: hidden;     /* 👈 accessibilité + éviter clics */
+  transition: transform 0.6s, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.btn-instagram:hover .btn-instagram-text2 {
+  transform: translateX(112px); /* ⬆ adaptation translation */
+  opacity: 1;                  /* 👈 visible */
+  visibility: visible;
+}
+
+.btn-instagram-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s;
+}
+
+.btn-instagram-icon svg {
+  width: 50px;            /* ⬆ taille SVG */
+  height: 50px;
+}
+
+.btn-instagram-icon::before {
+  position: absolute;
+  left: -200px;
+  top: 0;
+  z-index: -1;
+  content: '';
+  width: 270px;           /* ⬆ taille zone hover */
+  height: 50px;
+  border-radius: 30px;
+  background-color: #cd201f;
+}
+
+.btn-instagram:hover .btn-instagram-icon {
+  transform: translateX(178px); /* ⬆ adaptation translation */
+}
+
+.btn-instagram:active {
+  transform: scale(1.03);
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 32px; /* espace entre les boutons */
+  margin: 40px auto 0 auto;
   width: 100%;
-  object-fit: scale-down;
-  padding: 6px; /* réduit visuellement la taille du logo dans le cercle */
-  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .social-buttons {
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    margin: 32px auto 0 auto;
+  }
+}
+
+footer {
+  width: 100%;
+  background: linear-gradient(180deg, #27384185 15%, #1e2c336c 90%);
+  color: #fff;
+  text-align: center;
+  padding: 32px 0 18px 0;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  margin-top: 60px;
+  border-top: 2px solid #333;
+}
+
+@media (max-width: 600px) {
+  footer {
+    font-size: 1em;
+    padding: 24px 10px 12px 10px;
+    line-height: 1.5;
+    word-break: break-word;
+  }
 }
