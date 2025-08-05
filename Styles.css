@@ -55,77 +55,83 @@ p {
 }
 
 /* AVIS CARDS */
-  .reviews-carousel-container {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    background: linear-gradient(135deg, #344D59 25%, #B8CBD0 70%);
-    padding: 20px 0;
-    box-sizing: border-box;
-  }
+.reviews-carousel-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(360deg, rgba(126, 125, 125, 0.5) 35%, rgba(187, 187, 187, 0.5) 70%);
+  padding: 20px 0;
+  box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+}
 
-  .reviews-carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-  }
+.reviews-carousel-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
 
-  .review-card {
-    flex: 0 0 auto;
-    width: 90%;
-    max-width: 300px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px #0B162C, 0 1.5px 0 #0B162C inset;
-    margin: 0 10px;
-    padding: 22px 18px 20px 18px;
-    box-sizing: border-box;
-    border: 2px solid #FFFFFF;
-    position: relative;
-    overflow: hidden;
-    scroll-snap-align: center;
-  }
+.reviews-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
 
-  .review-card-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
+.review-card {
+  flex: 0 0 auto;
+  width: 90%;
+  max-width: 300px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px #0B162C, 0 1.5px 0 #0B162C inset;
+  margin: 0 10px;
+  padding: 22px 18px 20px 18px;
+  box-sizing: border-box;
+  border: 2px solid #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: center;
+}
 
-  .review-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    font-size: 36px;
-    font-weight: bold;
-    margin-right: 10px;
-  }
+.review-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
-  .review-username {
-    font-weight: bold;
-  }
+.review-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 36px;
+  font-weight: bold;
+  margin-right: 10px;
+}
 
-  .review-stars {
-    color: #DAAB3A;
-    margin: 10px 0;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.review-username {
+  font-weight: bold;
+}
 
-  .review-stars .filled {
-    color: #c5950f;
-  }
+.review-stars {
+  color: #DAAB3A;
+  margin: 10px 0;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .review-text {
-    font-size: 0.9rem;
-    color: #333;
-  }
+.review-stars .filled {
+  color: #c5950f;
+}
+
+.review-text {
+  font-size: 0.9rem;
+  color: #333;
+}
+
 
   @media (max-width: 767px) {
     .review-card {
@@ -158,7 +164,7 @@ p {
 
 /* SECTION TIKTOK */
 .tiktok-section {
-  background: linear-gradient(360deg, #670600 35%, #FF3D34 70%);
+  background: linear-gradient(360deg, #474646 35%, #a0a0a0 70%);
   border-radius: 15px;
   padding: 15px;
   width: 95%;
@@ -374,51 +380,6 @@ p {
   padding: 40px 10px 60px 10px;
 }
 
-/* HEADER */
-.main-header {
-  width: 100%;
-  background: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  box-shadow: none;
-  margin: 0;
-}
-
-.main-header nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  list-style: none;
-  margin: 0;
-  padding: 24px 0 12px 0;
-}
-
-.main-header nav ul li a {
-  font-weight: 700;
-  font-size: 1.8em;
-  text-decoration: none;
-  letter-spacing: 1px;
-  padding: 8px 18px;
-  border-radius: 6px;
-  background: linear-gradient(90deg, #fff 20%, #ffe066 50%, #fff 80%);
-  background-size: 200% auto;
-  color: #222;
-  transition: background-position 0.6s, color 0.2s;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.main-header nav ul li a:hover,
-.main-header nav ul li a:focus {
-  background-position: right center;
-  color: #ffe066;
-  text-shadow: 0 0 8px #fff8;
-}
-
 /* APPARITIONS */
 .apparitions-section {
   background: linear-gradient(135deg, #B8CBD0 80%, #344D59 50%);
@@ -543,7 +504,7 @@ p {
   padding: 20px;
   width: 100%;
   max-width: 330px;
-  background-color: transparent;
+  background-color: white;
 }
 
 .form>p {
@@ -649,16 +610,17 @@ p {
 }
 
 #avisForm {
-  display: none;
+  border: 2px solid var(--main-color, #323232);
+  border-radius: 5px;
+  box-shadow: 4px 4px var(--main-color, #323232);
+  display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
   width: 100%;
   max-width: 330px;
-  margin: 40px auto;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px #0001;
+  background-color: white; /* Fond blanc */
+  margin: 20px auto;
 }
 
 #avisForm input[type="text"],
@@ -834,19 +796,25 @@ p {
 
 .main-header nav ul li a {
   font-weight: 700;
-  font-size: 1.8em;
+  font-size: 2.3em;
   text-decoration: none;
   letter-spacing: 1px;
   padding: 8px 18px;
   border-radius: 6px;
+
   background: linear-gradient(90deg, #fff 20%, #ffe066 50%, #fff 80%);
-  background-size: 200% auto;
+  background-size: 300% 300%;
+  animation: mistyColors 8s ease-in-out infinite;
+
   color: #222;
   transition: background-position 0.6s, color 0.2s;
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 }
+
 
 .main-header nav ul li a:hover,
 .main-header nav ul li a:focus {
@@ -855,22 +823,66 @@ p {
   text-shadow: 0 0 8px #fff8;
 }
 
+@keyframes mistyColors {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 40%;
+  }
+  50% {
+    background-position: 100% 60%;
+  }
+  75% {
+    background-position: 50% 70%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .apparitions-title {
   text-align: center;
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 700;
   margin-bottom: 20px;
   margin-top: 40px;
   letter-spacing: 1px;
 
-  background: linear-gradient(90deg, #fff 20%, #ffe066 50%, #fff 80%);
-  background-size: 200% auto;
+  background: linear-gradient(
+    90deg, 
+    #ffffff 20%, 
+    #ffe066 50%, 
+    #ffffff 80%
+  );
+  background-size: 300% 300%; /* taille plus grande pour plus de mouvement */
+
+  animation: mistyColors 8s ease-in-out infinite;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 
-  color: transparent; /* sécurité pour navigateurs sans background-clip */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes mistyColors {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 40%;
+  }
+  50% {
+    background-position: 100% 60%;
+  }
+  75% {
+    background-position: 50% 70%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .carousel2 {
@@ -945,15 +957,9 @@ p {
 }
 
 .carousel-control2:hover {
-  background: #FFC107;
+  background: #ffffff;
   color: #000000;
-  box-shadow: 0 6px 12px rgba(255, 215, 0, 0.7);
-}
-
-.carousel-control2:active {
-  background: rgba(255, 215, 0, 0.75);
-  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.6);
-  color: #222;
+  box-shadow: 0 6px 12px rgba(247, 234, 165, 0.7);
 }
 
 .carousel2-caption {
@@ -1003,6 +1009,20 @@ p {
   }
 }
 
+
+@media (max-width: 600px) {
+  .apparitions-title {
+    font-size: 2.5em !important;
+    word-break: break-word;
+    white-space: normal !important;
+    padding: 0 8px;
+    line-height: 1.2;
+    text-align: center !important;
+    max-width: 100vw;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+}
 /* ✅ Mobile (600px ou moins) : 1 image visible */
 @media (max-width: 600px) {
   .carousel-item2 {
@@ -1012,8 +1032,8 @@ p {
   }
 
   .carousel-item2 img {
-    filter: none !important;
-    opacity: 0.95 !important; /* ajuste si besoin (0.5 - 0.95) */
+    filter: grayscale(70%) brightness(60%) !important;
+    opacity: 0.99 !important;
   }
 
   /* ✅ Affichage du texte sur la première image */
@@ -1041,6 +1061,25 @@ p {
 
   .carousel2-subtitle {
     font-size: 1em;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-control2 {
+    width: 28px;
+    height: 28px;
+    font-size: 1.5em;
+    background: none !important;
+    color: #ffffff !important;
+    border: none;
+    box-shadow: none !important;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: color 0.2s, transform 0.1s;
   }
 }
 
@@ -1185,7 +1224,7 @@ p {
   .main-header nav ul li a {
     display: inline-block;
     width: auto;
-    font-size: 1.1em;
+    font-size: 1.2em;
     padding: 10px 0;
     margin: 0 auto;
   }
@@ -1477,6 +1516,34 @@ video {
     gap: 18px;
     align-items: center;
     margin: 32px auto 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-title,
+  .retrouvez-moi-ici-title {
+    font-size: 2em !important;
+    word-break: break-word;
+    white-space: normal !important;
+    padding: 0 8px;
+    line-height: 1.2;
+    text-align: center !important;
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .cliquez-carte-reseaux,
+  .cliquez-carte-reseaux-title {
+    font-size: 1.2em !important;
+    word-break: break-word;
+    white-space: normal !important;
+    padding: 0 8px;
+    line-height: 1.3;
+    text-align: center !important;
+    max-width: 100vw;
+    display: block;
+    margin: 0 auto 12px auto;
   }
 }
 
