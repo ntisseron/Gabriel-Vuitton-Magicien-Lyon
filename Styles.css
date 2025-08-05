@@ -59,7 +59,7 @@ p {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  background: linear-gradient(360deg, rgba(126, 125, 125, 0.5) 35%, rgba(187, 187, 187, 0.5) 70%);
+
   padding: 20px 0;
   box-sizing: border-box;
   scrollbar-width: none; /* Firefox */
